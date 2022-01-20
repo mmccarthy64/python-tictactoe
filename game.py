@@ -1,6 +1,5 @@
 from player import HumanPlayer, RandomComputerPlayer
 
-
 class TicTacToe:
     def __init__(self):
         self.board = [' ' for _ in range(9)] #single list to rep 3x3 board
@@ -73,9 +72,9 @@ def play(game, x_player, o_player, print_game=True):
 
     while game.empty_squares():
         if letter == 'O':
-            square = o_player.get_move()
+            square = o_player.get_move(game)
         else:
-            square = x_player.get_move()
+            square = x_player.get_move(game)
 
         #function to make a move
         if game.make_move(square, letter):
@@ -95,8 +94,8 @@ def play(game, x_player, o_player, print_game=True):
         if print_game:
             print('It\'s a tie!')
 
-if __name__ == '_main_':
-    x_player = HumanPlayer('X')
-    o_player = RandomComputerPlayer('O')
+if __name__ == '__main__':
+    x_player = HumanPlayer()
+    o_player = RandomComputerPlayer()
     t = TicTacToe()
     play(t, x_player, o_player, print_game=True)
