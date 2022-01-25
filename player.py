@@ -2,24 +2,23 @@ import math
 import random
 
 class Player:
-    def _init_(self, letter):
-        #letter is x or o
+    def __init__(self, letter):
         self.letter = letter
 
     def get_move(self, game):
         pass
 
 class RandomComputerPlayer(Player):
-    def _init_(self, letter):
-        super()._init_(letter)
+    def __init__(self, letter):
+        super().__init__(letter)
 
     def get_move(self, game):
         square = random.choice(game.available_moves())
         return square
 
 class HumanPlayer(Player):
-    def _init_(self, letter):
-        return super()._init_(letter)
+    def __init__(self, letter):
+        super().__init__(letter)
     
     def get_move(self, game):
         valid_square = False
